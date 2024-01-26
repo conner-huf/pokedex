@@ -1,0 +1,7 @@
+.main-section {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-around;
+    margin: 1rem 0rem;
+}
