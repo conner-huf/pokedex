@@ -1,12 +1,13 @@
 import React from 'react'
 import './Header.css'
 import { Search } from '../Search/Search'
+import pokedexLogo from '../../Assets/PokedexLogo.png'
 
-export const Header = ({ setPokemonData }) => {
+export const Header = ({ setPokemonData, setPage, page }) => {
   return (
     <div className='header-container'>
-      <h1>Pokedex</h1>
-      <Search setPokemonData={setPokemonData} />
+      <img src={pokedexLogo} alt='Pokemon Logo' className='pokedex-logo' />
+      <Search setPokemonData={setPokemonData} setPage={setPage} page={page} />
     </div>
   )
 }

@@ -1,12 +1,14 @@
 import React from 'react'
 import './Main.css'
 
-import { PokemonInfo } from '../PokemonInfo/PokemonInfo'
+import { PokemonCard } from '../PokemonCard/PokemonCard'
 
 export const Main = ({ pokemonData }) => {
   return (
     <div className="main-section">
-        <PokemonInfo data={pokemonData}/>
+        {pokemonData.map((data, index) => (
+          <PokemonCard key={index} data={data} />
+        ))}
     </div>
   )
 }

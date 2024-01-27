@@ -1,5 +1,6 @@
 .main-section {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: top;
     justify-content: space-around;
