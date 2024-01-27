@@ -11,7 +11,6 @@ export const Search = ({ setPokemonData, setPage, page }) => {
             .then(data => {
                 const pokemonData = search ? [data] : data.results;
                 if (!search) {
-                    // Fetch full data for each Pokemon
                     const promises = pokemonData.map(pokemon => fetch(pokemon.url).then(response => response.json()));
                     Promise.all(promises).then(fullData => setPokemonData(fullData));
                 } else {
@@ -21,10 +20,12 @@ export const Search = ({ setPokemonData, setPage, page }) => {
     }, [search, setPokemonData, page]);
 
     return (
-        <div>
+        <div className='search-bar-and-buttons'>
             <input className="search-bar" type="text" value={search} onChange={e => setSearch(e.target.value)} />
-            <button onClick={() => setPage(prevPage => Math.max(prevPage - 1, 1))}>Previous</button> {/* Add this line */}
-            <button onClick={() => setPage(prevPage => prevPage + 1)}>Next</button> {/* Add this line */}
+            <div className="page-buttons">
+                <button onClick={() => setPage(prevPage => Math.max(prevPage - 1, 1))}>Previous</button>
+                <button onClick={() => setPage(prevPage => prevPage + 1)}>Next</button>
+            </div>
         </div>
     )
 }
