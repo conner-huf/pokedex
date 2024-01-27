@@ -14,6 +14,7 @@ I plan to regularly make additions to this application to implement some other t
 -   adding buttons to navigate through the added options.
 
 ### Update 1/26/24
+
 I've decided to keep a running updated screenshot of what the app is looking like. These can be seen below. The previous screenshots can be found in the screenshot folder. My aim is that there will be a nice journey from rough to (hopefully) polished.
 
 ![Desktop Screenshot](/screenshots/Iter2/screenshot-desktop.png)
