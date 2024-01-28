@@ -3,11 +3,11 @@ import './Header.css'
 import { Search } from '../Search/Search'
 import pokedexLogo from '../../Assets/PokedexLogo.png'
 
-export const Header = ({ setPokemonData, setPage, page }) => {
+export const Header = ({ setPokemonData }) => {
   return (
     <div className='header-container'>
       <img src={pokedexLogo} alt='Pokemon Logo' className='pokedex-logo' />
-      <Search setPokemonData={setPokemonData} setPage={setPage} page={page} />
+      <Search setPokemonData={setPokemonData} />
     </div>
   )
 }

@@ -2,7 +2,37 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: top;
+    align-items: flex-start;
     justify-content: space-around;
-    margin: 1rem 0rem;
+    margin: 1rem;
+    background-color: #9c9b9b32;
+    border-radius: 1rem;
+}
+
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.page-btn {
+    margin: .5rem 1rem 0 0;
+    border-radius: 1rem;
+    border: .15rem solid #9a9a9a;
+}
+
+.page-num-field {
+    width: 2rem;
+    margin: 0.5rem 1rem 0 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

@@ -1,0 +1,12 @@
+.sidebar {
+    background-color: aqua;
+    height: calc(100vh - 7.3rem);
+    width: 8rem;
+}
+
+@media (min-width: 1024px){
+
+    .sidebar {
+      height: calc(100vh - 4.5rem);
+    }
+  }
