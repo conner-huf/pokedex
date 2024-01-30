@@ -1,0 +1,75 @@
+.pokemon-info-panel {
+    background-color: #ffffff81;
+    height: calc(100vh - 7.3rem);
+    width: 30rem;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.pokemon-info-panel.hidden {
+    transition: 0.3s ease-in-out;
+    transform: translateX(100%);
+    width: 0;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-pokemon-img {
+    margin-top: 1rem;
+    width: 20rem;
+    background-color: #ffffff85;
+    border-radius: 1rem;
+}
+
+.selected-pokemon-name, .pokemon-stat-name, .selected-pokemon-types {
+    text-transform: capitalize;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    background-color: #ffffff85;
+}
+
+.selected-pokemon-measurements {
+    margin: 0 0 1rem 0;
+    background-color: #ffffff85;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.pokemon-stat-value {
+    border-radius: 1rem;
+    padding: 0 1rem;
+    
+}
+
+.deselect-button {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    font-size: 2rem;
+    font-weight: 900;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(189, 189, 189);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.deselect-button:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+@media (min-width: 1024px){
+    .pokemon-info-panel {
+      height: calc(100vh - 4.5rem);
+    }
+  }

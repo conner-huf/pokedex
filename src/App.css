@@ -11,10 +11,27 @@ body {
 
 .mid-screen {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+
+::-webkit-scrollbar {
+  width: .6rem; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff86; /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(252, 252, 252, 0.904); /* Color of the scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(88, 88, 88, 0.8); /* Color of the scroll thumb on hover */
+}
+
 
 @media (min-width: 1024px){
 
@@ -22,4 +39,5 @@ body {
     height: calc(100vh - 4.5rem);
     overflow-y: auto;
   }
+
 }
