@@ -13,7 +13,7 @@ export const PokemonInfo = ({ selectedPokemon, setSelectedPokemon }) => {
             case 'grass':
                 return '#42f44e';
             case 'flying':
-                return '#5e5e5e';
+                return '#c1ffff';
             case 'water':
                 return '#0e6fda';
             case 'poison':
@@ -41,7 +41,7 @@ export const PokemonInfo = ({ selectedPokemon, setSelectedPokemon }) => {
             case 'fairy':
                 return '#f6abd7';
             case 'normal':
-                return '#5f4f7a';
+                return '#a2a596';
             default:
                 return 'gray'; // Default color
         }
