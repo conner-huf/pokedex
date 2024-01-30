@@ -1,3 +1,7 @@
+pokemoninfo-background-container {
+    background-color: #ffffff81;
+}
+
 .pokemon-info-panel {
     background-color: #ffffff81;
     height: calc(100vh - 7.3rem);
@@ -31,6 +35,10 @@
     border-radius: 1rem;
     padding: 0 1rem;
     background-color: #ffffff85;
+}
+
+.selected-pokemon-types {
+    margin-top: -.5rem;
 }
 
 .selected-pokemon-measurements {
@@ -72,3 +80,9 @@
       height: calc(100vh - 4.5rem);
     }
   }
+
+  @media (max-width: 800px){
+    .pokemon-info-panel {
+        width: 100vw;
+    }
+}

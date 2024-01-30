@@ -2,8 +2,8 @@ import './App.css';
 import React, { useState } from 'react'
 import { Header } from './Components/Header/Header';
 import { Main } from './Components/Main/Main';
-import { Sidebar } from './Components/Sidebar/Sidebar';
 import { PokemonInfo } from './Components/PokemonInfo/PokemonInfo';
+import { Footer } from './Components/Footer/Footer';
 
 function App() {
   const [search, setSearch] = useState("")
@@ -25,6 +25,7 @@ function App() {
         <div className='right-side-content'>
           <PokemonInfo selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} />
         </div>
+        <Footer selectedPokemon={selectedPokemon} />
       </div>
     </>
   );

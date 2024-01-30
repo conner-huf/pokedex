@@ -1,0 +1,23 @@
+.footer-button {
+    aspect-ratio: 1/1;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: 50%;
+    border: .2rem solid #161616;
+    width: 4rem;
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(190, 190, 190, 0.705);
+}
+
+.footer-button:hover {
+    background-color: rgba(255, 255, 255, 0.897);
+}
+
+.hidden-footer {
+    display: none;
+}

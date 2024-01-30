@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { PokemonCard } from '../PokemonCard/PokemonCard'
+import loadingGif from '../../Assets/PokeballShake.gif'
 
 import './Main.css'
 
@@ -40,7 +41,7 @@ export const Main = ({ search, url, setUrl, page, setPage, setSelectedPokemon })
 
   const debouncedHandlePageChange = debounce((pageNumber) => {
     if (pageNumber) {
-      setUrl(`https://pokeapi.co/api/v2/pokemon?offset=${(pageNumber-1)*20}&limit=20`);
+      setUrl(`https://pokeapi.co/api/v2/pokemon?offset=${(pageNumber-1)*100}&limit=100`);
     }
   }, 500);
 
@@ -59,18 +60,29 @@ export const Main = ({ search, url, setUrl, page, setPage, setSelectedPokemon })
     debouncedHandlePageChange(page);
   }, [page]);
 
+  const filteredPokemonData = pokemonData.filter(pokemon => pokemon.name.includes(search));
+
   return (
     <div className="pokemon-container">
-      <div className='page-btn-container'>
-        <button className="page-btn prev-btn" onClick={() => setPage(prevPage => Math.max(prevPage - 1, 1))}>Previous</button>
-        <input className="page-num-field" type="number" value={page} onChange={handlePageChange} min="1" />
-        <button className="page-btn next-btn" onClick={() => setPage(prevPage => prevPage + 1)}>Next</button>
-      </div>
-      <div className="pokemon-list">
-        {pokemonData.map((pokemonData, index) => (
-          <PokemonCard key={index} data={pokemonData} setSelectedPokemon={setSelectedPokemon} />
-        ))}
-      </div>
+      {isLoading ? (
+        <>
+          <img className="loading-image" src={loadingGif} alt="Loading..." />
+          <h3 className='loading-text'>Loading...</h3>
+        </>
+      ) : (
+      <>
+        <div className='page-btn-container'>
+          <button className="page-btn prev-btn" onClick={() => setPage(prevPage => Math.max(prevPage - 1, 1))}>Previous</button>
+          <input className="page-num-field" type="number" value={page} onChange={handlePageChange} min="1" max="14" />
+          <button className="page-btn next-btn" onClick={() => setPage(prevPage => prevPage + 1)}>Next</button>
+        </div>
+        <div className="pokemon-list">
+          {filteredPokemonData.map((pokemonData, index) => (
+            <PokemonCard key={index} data={pokemonData} setSelectedPokemon={setSelectedPokemon} />
+            ))}
+        </div>
+      </>
+      )}
     </div>
   )
 }

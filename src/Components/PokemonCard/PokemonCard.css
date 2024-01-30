@@ -13,6 +13,7 @@
     padding: 1.5rem;
     width: 10rem;
     margin: 2rem 2rem 2rem 2rem;
+    transition: .3s;
 }
 
 .displayed-pokemon-id {
@@ -20,6 +21,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 5;
     text-align: center;
 }
 
@@ -30,4 +32,9 @@
     width: 100%;
     text-align: center;
     text-transform: capitalize;
+}
+
+.displayed-pokemon-sprite:hover {
+    background-color: rgba(216, 216, 216, 0.87);
+
 }
