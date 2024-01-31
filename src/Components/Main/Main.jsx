@@ -60,7 +60,7 @@ export const Main = ({ search, url, setUrl, page, setPage, setSelectedPokemon })
     debouncedHandlePageChange(page);
   }, [page]);
 
-  const filteredPokemonData = pokemonData.filter(pokemon => pokemon.name.includes(search));
+  const filteredPokemonData = pokemonData.filter(pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div className="pokemon-container">

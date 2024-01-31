@@ -85,4 +85,8 @@ pokemoninfo-background-container {
     .pokemon-info-panel {
         width: 100vw;
     }
+
+    .deselect-button {
+        color: rgb(0, 0, 0);
+    }
 }
