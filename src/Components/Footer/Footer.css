@@ -19,7 +19,7 @@
     background-color: rgba(255, 255, 255, 0.897);
 }
 
-.footer-button:active, .footer-button:focus, .footer-button:hover {
+.footer-button:active, .footer-button:focus, .footer-button:hover, .footer-button:visited {
     color: black;
 }
 

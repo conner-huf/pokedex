@@ -54,7 +54,7 @@
     animation: bounce 1s infinite;
 }
 
-.page-btn:active, .page-btn:focus, .page-btn:hover {
+.page-btn:active, .page-btn:focus, .page-btn:hover, .page-btn:visited {
     color: black;
 }
 
