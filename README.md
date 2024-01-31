@@ -21,9 +21,18 @@ I've decided to keep a running updated screenshot of what the app is looking lik
 
 So in the past couple of days, I've made pretty big improvements to the site. Now, you can click on a pokemon to see it's base stats, type, and measurements. The stats are colored in red if they are below the average and green if they are above average so you can tell what a pokemon is generally good at with a glance. The type of the pokemon is colored in based on the type.
 
+### Update 1/31/24
+
+Previously, the search function was only searching the current page. Which I thought was pretty pointless. Now, the search function fetches all of the pokemon and returns a list of pokemon that match the search term.
+
 ![Desktop Screenshot](/screenshots/Iter3/screenshot-desktop.png)
+
 <hr/>
+
 ![Desktop Screenshot](/screenshots/Iter3/screenshot-displayed-pokemon.png)
+
 <hr/>
+
 ![Mobile Screenshot](/screenshots/Iter3/screenshot-mobile.png)
+
 <hr/>
