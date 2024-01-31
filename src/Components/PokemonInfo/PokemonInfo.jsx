@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './PokemonInfo.css'
+import axios from 'axios';
 
 export const PokemonInfo = ({ selectedPokemon, setSelectedPokemon }) => {
+    const [abilityDescriptions, setAbilityDescriptions] = useState([]);
+
     const panelClass = selectedPokemon ? 'pokemon-info-panel' : 'pokemon-info-panel hidden';
 
     const getTypeColor = (type) => {
@@ -55,6 +58,22 @@ export const PokemonInfo = ({ selectedPokemon, setSelectedPokemon }) => {
     ? `linear-gradient(to right, ${typeColors[0]}, ${typeColors[1]})`
     : typeColors[0] || 'transparent';
 
+    useEffect(() => {
+        if (selectedPokemon) {
+            const fetchAbilityDescriptions = async () => {
+                const descriptions = await Promise.all(
+                    selectedPokemon.abilities.map(async (ability) => {
+                        const response = await axios.get(ability.ability.url);
+                        const englishDescription = response.data.effect_entries.find(entry => entry.language.name === 'en');
+                        return englishDescription ? englishDescription.effect : '';
+                    })
+                );
+                setAbilityDescriptions(descriptions);
+            };
+            fetchAbilityDescriptions();
+        }
+    }, [selectedPokemon]);
+
     return (
         <div className={panelClass}>
             {selectedPokemon && (
@@ -79,6 +98,17 @@ export const PokemonInfo = ({ selectedPokemon, setSelectedPokemon }) => {
                             ))}
                         </tbody>
                     </table>
+                    <div className='selected-pokemon-abilities'>
+                        <h5>Abilities:</h5>
+                        <ul>
+                            {selectedPokemon.abilities.map((ability, index) => (
+                                <li key={index}>
+                                    <span className="ability-name">{ability.ability.name}</span>
+                                    {abilityDescriptions[index] && <p>{abilityDescriptions[index]}</p>}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             )}
         </div>

@@ -1,7 +1,3 @@
-pokemoninfo-background-container {
-    background-color: #ffffff81;
-}
-
 .pokemon-info-panel {
     background-color: #ffffff81;
     height: calc(100vh - 7.5rem);
@@ -73,6 +69,10 @@ pokemoninfo-background-container {
 
 .deselect-button:hover {
     color: rgb(255, 255, 255);
+}
+
+.ability-name {
+    text-transform: capitalize;
 }
 
 
