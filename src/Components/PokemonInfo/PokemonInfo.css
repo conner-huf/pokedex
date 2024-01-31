@@ -4,10 +4,11 @@ pokemoninfo-background-container {
 
 .pokemon-info-panel {
     background-color: #ffffff81;
-    height: calc(100vh - 7.3rem);
+    height: calc(100vh - 7.5rem);
     width: 30rem;
     transition: transform 0.3s ease-in-out;
     position: relative;
+    overflow-y: auto;
 }
 
 .pokemon-info-panel.hidden {
