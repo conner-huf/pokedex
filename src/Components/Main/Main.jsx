@@ -5,7 +5,7 @@ import loadingGif from '../../Assets/PokeballShake.gif'
 
 import './Main.css'
 
-export const Main = ({ search, url, setUrl, page, setPage, setSelectedPokemon }) => {
+export const Main = ({ search, url, setUrl, page, setPage, setSelectedPokemon, matches }) => {
   const [pokemonData, setPokemonData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -53,8 +53,13 @@ export const Main = ({ search, url, setUrl, page, setPage, setSelectedPokemon })
   }
 
   useEffect(() => {
+    if (search !== '') {
+      Promise.all(matches.map(match => axios.get(match.url)))
+        .then(response => setPokemonData(response.map(res => res.data)));
+    } else {
     pokeFetch();
-  }, [url]);
+    }
+  }, [url, search, matches]);
 
   useEffect(() => {
     debouncedHandlePageChange(page);
