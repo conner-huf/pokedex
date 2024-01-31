@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export const PokemonInfo = ({ selectedPokemon, setSelectedPokemon }) => {
     const [abilityDescriptions, setAbilityDescriptions] = useState([]);
+    const [selectedTab, setSelectedTab] = useState('abilities');
 
     const panelClass = selectedPokemon ? 'pokemon-info-panel' : 'pokemon-info-panel hidden';
 
@@ -98,8 +99,12 @@ export const PokemonInfo = ({ selectedPokemon, setSelectedPokemon }) => {
                             ))}
                         </tbody>
                     </table>
+                    <div className='tabs'>
+                        <button onClick={() => setSelectedTab('abilities')}>Abilities</button>
+                        <button onClick={() => setSelectedTab('moves')}>Moves</button>
+                    </div>
+                    {selectedTab === 'abilities' && (
                     <div className='selected-pokemon-abilities'>
-                        <h5>Abilities:</h5>
                         <ul>
                             {selectedPokemon.abilities.map((ability, index) => (
                                 <li key={index}>
@@ -109,6 +114,34 @@ export const PokemonInfo = ({ selectedPokemon, setSelectedPokemon }) => {
                             ))}
                         </ul>
                     </div>
+                    )}
+                    {selectedTab === 'moves' && (
+                        <div className='selected-pokemon-moves'>
+                            <table className="move-table-container">
+                                <thead>
+                                    <tr>
+                                        <th className='move-table-move-label'>Move</th>
+                                        <th className='move-table-level-label'>Level</th>
+                                    </tr>
+                                </thead>
+                                <tbody className='table-body-entries'>
+                                    {selectedPokemon.moves
+                                        .map(move => {
+                                            const learnedAt = move.version_group_details.find(detail => detail.version_group.name === 'sun-moon')?.level_learned_at;
+                                            return { ...move, learnedAt };
+                                        })
+                                        .filter(move => move.learnedAt)
+                                        .sort((a, b) => a.learnedAt - b.learnedAt)
+                                        .map((move, index) => (
+                                            <tr key={index}>
+                                                <td className='move-table-move-name'>{move.move.name}</td>
+                                                <td className='move-table-move-level'>{move.learnedAt}</td>
+                                            </tr>
+                                        ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}
                 </div>
             )}
         </div>
