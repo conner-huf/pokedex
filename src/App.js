@@ -10,7 +10,7 @@ import './App.css';
 function App() {
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
-  const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon?offset=${(page - 1) * 20}&limit=20`);
+  const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon?offset=${(page - 1) * 100}&limit=100`);
   const [selectedPokemon, setSelectedPokemon] = useState(null)
   const [allPokemon, setAllPokemon] = useState([]);
   const [matches, setMatches] = useState([]);
