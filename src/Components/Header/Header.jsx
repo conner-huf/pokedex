@@ -8,7 +8,7 @@ export const Header = ({ search, setSearch }) => {
   return (
     <div className='header-container'>
       <img src={pokedexLogo} alt='Pokemon Logo' className='pokedex-logo' />
-      <Search search={search} setSearch={setSearch} />
+      <Search search={search} setSearch={setSearch} data-testid="search-component" />
     </div>
   )
 }
